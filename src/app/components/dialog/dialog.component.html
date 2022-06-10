@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>เพิ่มสินค้า (Add Product)</h1>
+<div mat-dialog-content>
+  <form [formGroup]="productForm">
+    <mat-form-field appearance="outline">
+      <mat-label>ชื่อสินค้า (Product Name)</mat-label>
+      <input matInput formControlName="name" placeholder="iphone xs" />
+      <mat-icon matSuffix>sort_by_alpha</mat-icon>
+      <mat-hint>ใส่ชื่อสินค้าของคุณ</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ราคาสินค้า (Product Price)</mat-label>
+      <input
+        matInput
+        formControlName="price"
+        placeholder="1000"
+        type="number"
+      />
+      <mat-icon matSuffix>paid</mat-icon>
+      <mat-hint>ราคาขายสินค้า</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ประเภทสินค้า (Product Category)</mat-label>
+      <mat-select placeholder="mobile" formControlName="category">
+        <mat-option
+          *ngFor="let category of categories"
+          [value]="category.code"
+          >{{ category.name | uppercase }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="example-form-field">
+      <mat-label>วันที่เพิ่มสินค้าเข้าสู่ระบบ</mat-label>
+      <input
+        matInput
+        formControlName="date"
+        [matDatepicker]="datepicker"
+        [defaultValue]="dateToday"
+        for
+      />
+      <mat-hint>{{ dateToday | date: "EEEE, d MMMM y" }}</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>ยกเลิก</button>
+          <button mat-raised-button color="accent" matDatepickerApply>
+            บันทึก
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-radio-group aria-label="ชนิดสินค้า" formControlName="type">
+        <mat-label>ประเภทสินค้า (Type of Product)</mat-label>
+      <mat-radio-button *ngFor="let type of productType" [value]="type.code">{{
+        type.name
+      }}</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="outline">
+      <mat-label>รายละเอียดสินค้า (Product Details)</mat-label>
+      <textarea
+        matInput
+        formControlName="detail"
+        placeholder="อธิบายเพิ่มเติมเกี่ยวกับสินค้า"
+      ></textarea>
+      <mat-icon matSuffix>description</mat-icon>
+      <mat-hint>รายละเอียดสินค้า</mat-hint>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-action [align]="'center'">
+  <button mat-flat-button mat-dialog-close>ยกเลิก (Cancel)</button>
+  <button mat-raised-button color="accent" (click)="onSubmit()">
+    บันทึก (Save)
+  </button>
+</div>
