@@ -1,6 +1,20 @@
-# Angular13Crud
+# Angular 13 CRUD Tutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+
+# Installation
+
+1. ติดตั้ง node module ด้วยคำสั่ง
+
+> `npm i`
+
+2. เปิด json-server สำหรับเป็น demo service data (ข้อมูลอยู่ในไฟล์ db.json) ซึ่ง service จะอยู่ที่ <http://localhost:3000>
+
+> `json-server --watch db.json`
+
+3. สั่งให้ angular ทำงานด้วยคำสั่ง
+
+> `ng s -o`
 
 ## Development server
 
