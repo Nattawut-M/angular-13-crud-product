@@ -59,18 +59,16 @@
         ตัวเลือก (Option)
       </th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="openRowProduct(row)" (updated)="getAllProduct()">
           <mat-icon>edit</mat-icon>
           แก้ไข (Edit)
         </button>
-        <button mat-icon-button color="warn">
+        <button mat-icon-button color="warn" (click)="openRowProduct(row)">
           <mat-icon>delete</mat-icon>
           ลบ (Delete)
         </button>
       </td>
     </ng-container>
-
-    <!-- todo; สร้าง 'action column' สำหรับทำ edit และ delete -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

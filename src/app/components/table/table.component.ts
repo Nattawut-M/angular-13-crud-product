@@ -1,15 +1,18 @@
 import {
   OnInit,
   AfterViewInit,
+  Inject,
   Component,
   ViewChild,
   Input,
 } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -27,20 +30,23 @@ export class TableComponent implements OnInit {
     'category',
     'date',
     'detail',
-    'option'
+    'option',
   ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getAllProduct();
   }
 
-  intialTable() {
+  initialTable() {
     console.log('productlist initial\t', this.productList);
     this.dataSource = new MatTableDataSource(this.productList);
     this.dataSource.paginator = this.paginator;
@@ -58,18 +64,29 @@ export class TableComponent implements OnInit {
   getAllProduct(): void {
     this.productService.getAllProduct().subscribe({
       next: (response) => {
-        console.log(response);
+        // console.log(response);
         this.productList = response;
-        console.log('productlist initial\t', this.productList);
+        // console.log('productlist initial\t', this.productList);
         this.dataSource = new MatTableDataSource(this.productList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.dataSource);
+        // console.log(this.dataSource);
       },
       error: (err) => {
         console.log(err);
         alert('something went wrong, cannot fetch product.');
       },
     });
+  }
+
+  openRowProduct(product: Product) {
+    // console.log(product);
+    this.dialog
+      .open(DialogComponent, {
+        width: '80vw',
+        data: product,
+      })
+      .beforeClosed()
+      .subscribe(() => this.getAllProduct());
   }
 }

@@ -18,12 +18,12 @@
   },
   "product-list": [
     {
-      "name": "pname",
-      "price": 555,
+      "name": "update 6",
+      "price": 6,
       "date": "2022-06-08T17:00:00.000Z",
-      "category": "tablet",
-      "type": "2",
-      "detail": "",
+      "category": "com",
+      "type": "3",
+      "detail": "ทดสอบ comment console log code",
       "id": 1
     },
     {
@@ -43,6 +43,60 @@
       "type": "3",
       "detail": "",
       "id": 3
+    },
+    {
+      "name": "pname",
+      "price": 555,
+      "date": "2022-06-08T17:00:00.000Z",
+      "category": "tablet",
+      "type": "2",
+      "detail": "",
+      "id": 4
+    },
+    {
+      "name": "iphone 6s",
+      "price": 25000,
+      "date": "2022-06-10T17:00:00.000Z",
+      "category": "mobile",
+      "type": "1",
+      "detail": "cpu apple a9\nram 2gb\nrom 32gb",
+      "id": 5
+    },
+    {
+      "name": "n1",
+      "price": 12345,
+      "date": "2022-06-17T17:00:00.000Z",
+      "category": "tablet",
+      "type": "3",
+      "detail": "",
+      "id": 6
+    },
+    {
+      "name": "pname",
+      "price": 555,
+      "date": "2022-06-08T17:00:00.000Z",
+      "category": "tablet",
+      "type": "2",
+      "detail": "",
+      "id": 7
+    },
+    {
+      "name": "iphone 6s",
+      "price": 25000,
+      "date": "2022-06-10T17:00:00.000Z",
+      "category": "mobile",
+      "type": "1",
+      "detail": "cpu apple a9\nram 2gb\nrom 32gb",
+      "id": 8
+    },
+    {
+      "name": "n1",
+      "price": 12345,
+      "date": "2022-06-17T17:00:00.000Z",
+      "category": "tablet",
+      "type": "3",
+      "detail": "",
+      "id": 9
     }
   ]
 }

@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   getAllProduct(): void {
     this.productService.getAllProduct().subscribe({
       next: (response) => {
-        console.log(response);
+        // console.log(response);
         this.productList = response;
       },
       error: (err) => {
