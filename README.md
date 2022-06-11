@@ -16,6 +16,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 > `ng s -o`
 
+# Previews
+
+1. _หน้าแรก (homepage)_
+   ![image info](./src/assets/images/home.png "หน้าแรก")
+
+1. _ป๊อบอัพเพิ่มสินค้า (add product dialog)_
+   ![image info](./src/assets/images/dialog-add.png "ป๊อบอัพเพิ่มสินค้า")
+
+1. _ป๊อบแก้ไขเสินค้าจากข้อมูลเดิม (edit product dialog)_
+   ![image info](./src/assets/images/dialog-edit.png "ป๊อบแก้ไขเสินค้าจากข้อมูลเดิม")
+
+1. _เมนูยืนยันลบสินค้า (menu confirm delete product)_
+   ![image info](./src/assets/images/dialog-delete.png "เมนูยืนยันลบสินค้า")
+
+1. _ตัวอย่างข้อมูล db.json (example json demo database)_
+   ![image info](./src/assets/images/db-json.png "ตัวอย่างข้อมูล db.json")
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
