@@ -9,7 +9,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
 })
 export class AppComponent {
   title = 'angular-13-crud';
-  
 
   constructor(private dialog: MatDialog) {}
 

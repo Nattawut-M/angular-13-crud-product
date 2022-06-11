@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-dialog',
@@ -23,7 +25,11 @@ export class DialogComponent implements OnInit {
 
   productForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private productService: ProductService,
+    private dialogRef: MatDialogRef<DialogComponent>
+  ) {}
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
@@ -38,6 +44,16 @@ export class DialogComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.productForm.value);
+    this.productService.addProduct(this.productForm.value).subscribe({
+      next: (res) => {
+        alert('added new product.');
+        console.log(res);
+        this.dialogRef.close('saved !');
+        this.productForm.reset();
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('completed.'),
+    });
   }
 }
 

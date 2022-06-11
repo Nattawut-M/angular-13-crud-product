@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "add": [
+    {
+      "name": "pname",
+      "price": 555,
+      "date": "2022-06-08T17:00:00.000Z",
+      "category": "tablet",
+      "type": "2",
+      "detail": "",
+      "id": 1
+    },
+    {
+      "name": "iphone 6s",
+      "price": 25000,
+      "date": "2022-06-10T17:00:00.000Z",
+      "category": "mobile",
+      "type": "1",
+      "detail": "cpu apple a9\nram 2gb\nrom 32gb",
+      "id": 2
+    }
+  ]
+}
