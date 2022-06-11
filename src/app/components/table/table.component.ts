@@ -1,10 +1,10 @@
 import {
   OnInit,
-  AfterViewInit,
-  Inject,
   Component,
   ViewChild,
   Input,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -19,7 +19,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnChanges {
   @Input() productList: any[] = [];
 
   displayedColumns: string[] = [
@@ -42,16 +42,24 @@ export class TableComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    // throw new Error('Method not implemented.');
+    console.log(changes)
+    if(changes['productList']) {
+      this.getAllProduct();
+    }
+  }
+
   ngOnInit(): void {
     this.getAllProduct();
   }
 
   initialTable() {
-    console.log('productlist initial\t', this.productList);
+    // console.log('productlist initial\t', this.productList);
     this.dataSource = new MatTableDataSource(this.productList);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    console.log(this.dataSource);
+    // console.log(this.dataSource);
   }
 
   applyFilter(event: Event) {

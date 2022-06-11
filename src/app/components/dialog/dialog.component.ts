@@ -44,12 +44,12 @@ export class DialogComponent implements OnInit {
 
   initialForm(product: Product): void {
     this.productForm = this.formBuilder.group({
-      name: [product.name || '', Validators.required],
-      price: [product.price || '', Validators.required],
-      date: [product.date || '', Validators.required],
-      category: [product.category || '', Validators.required],
-      type: [product.type || '', Validators.required],
-      detail: [product.detail || '', Validators.required],
+      name: [product?.name || '', Validators.required],
+      price: [product?.price || '', Validators.required],
+      date: [product?.date || '', Validators.required],
+      category: [product?.category || '', Validators.required],
+      type: [product?.type || '', Validators.required],
+      detail: [product?.detail || '', Validators.required],
     });
   }
 
@@ -85,7 +85,7 @@ export class DialogComponent implements OnInit {
         this.productForm.reset();
       },
       error: (err) => console.log(err),
-      // complete: () => console.log('completed.'),
+      complete: () => console.log('completed.'),
     });
   }
 }
