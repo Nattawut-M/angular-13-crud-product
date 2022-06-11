@@ -89,4 +89,11 @@ export class TableComponent implements OnInit {
       .beforeClosed()
       .subscribe(() => this.getAllProduct());
   }
+
+  onConfirmDelete(product: Product) {
+    this.productService.deleteProductById(product.id!).subscribe({
+      next: () => this.getAllProduct(),
+      error: (err) => console.log(err),
+    });
+  }
 }

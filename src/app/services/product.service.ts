@@ -27,6 +27,8 @@ export class ProductService {
   updateProductById(id: number, data: Product) {
     return this.http.put<Product>(`${this.url}/product-list/${id}`, data);
   }
-}
 
-// todo; playground angular 13 crud
+  deleteProductById(id: number) {
+    return this.http.delete(`${this.url}/product-list/${id}`);
+  }
+}
