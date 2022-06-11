@@ -16,7 +16,7 @@
   "profile": {
     "name": "typicode"
   },
-  "add": [
+  "product-list": [
     {
       "name": "pname",
       "price": 555,
@@ -34,6 +34,15 @@
       "type": "1",
       "detail": "cpu apple a9\nram 2gb\nrom 32gb",
       "id": 2
+    },
+    {
+      "name": "n1",
+      "price": 12345,
+      "date": "2022-06-17T17:00:00.000Z",
+      "category": "tablet",
+      "type": "3",
+      "detail": "",
+      "id": 3
     }
   ]
 }

@@ -12,11 +12,11 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProduct() {
-    return this.http.get(`${this.url}/list`);
+    return this.http.get<Product[]>(`${this.url}/product-list`);
   }
 
   addProduct(product: Product) {
-    return this.http.post(`${this.url}/add`, product);
+    return this.http.post(`${this.url}/product-list`, product);
   }
 }
 
